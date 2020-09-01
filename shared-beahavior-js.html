@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="msgInput">
+
+    <div>
+        Characters left <span class="msgCounter">144</span>
+    </div>
+    <hr>
+    <input type="text" class="tagInput">
+
+    <div>
+        Characters left <span class="tagCounter">20</span>
+    </div>
+</body>
+
+<script>
+    const msgInput = document.querySelector('.msgInput');
+    const msgCounter = document.querySelector('.msgCounter');
+    const tagInput = document.querySelector('.tagInput');
+    const tagCounter = document.querySelector('.tagCounter');
+
+    // ensure chraracter count
+    const ensureContentLength = (content, max) => {
+        if (content.length > max) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // event listener that watches for the keyup
+
+    const textFieldLenghtValidator = (textField, counter, maxCount) => {
+        textField.onkeyup = function() {
+            counter.innerHTML = maxCount -this.value.length;
+            // console.log(this.value.length); //this refers to the input
+            if (!ensureContentLength(this.value, (maxCount -1))) {
+                textField.disabled = true;
+            }
+        }
+    }
+
+    textFieldLenghtValidator(msgInput, msgCounter, 144);
+    textFieldLenghtValidator(tagInput, tagCounter, 20);
+
+    // we used a normal function instead of a arrow because of the scom¿pe we needed for this
+</script>
+</html>

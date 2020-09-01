@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id='dateComponent'></div>
+    <!-- <button onclick="renderDate()">Click for Date</button> -->
+    <button id="dateBtn">Click for date</button>
+</body>
+
+<script>
+    const dateElement = document.getElementById('dateComponent');
+    const dateBtn = document.getElementById('dateBtn')
+
+    // renderDate = () => {
+    //     dateElement.innerHTML = Date();
+    // }
+
+    // YOU WILL NORMALLY USE THE FOLLOWING APROACH because all js behavior is located in the same place
+
+    dateBtn.addEventListener('click', (event) => {
+        dateElement.innerHTML = Date();
+    })
+
+</script>
+</html>

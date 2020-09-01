@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .activeHeading {
+            color: firebrick;
+            font-size: 2em;
+            cursor: pointer;
+        }
+
+        .nonactiveHeading {
+            color: cornflowerblue;
+            font-size: 4em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id='mainHeading' class="activeHeading someOtherClass">
+        Hi there
+    </div>
+</body>
+<script>
+    const heading = document.getElementById('mainHeading');
+
+    heading.onclick = () => {
+        if (heading.classList.contains('activeHeading')) {
+            heading.classList.remove('activeHeading');
+            heading.classList.add('nonactiveHeading');
+        } else {
+            heading.classList.remove('nonactiveHeading');
+            heading.classList.add('activeHeading');
+        }
+    }
+    // THE FOLLOWING OVERIDES THE CLASS NAME, EVEN IF YOU USE SEVERAL CLASS NAMES SO BETTER USE THE FIRST EXAMPLE
+    // heading.onclick = () => {
+    //     if (heading.classList.contains('activeHeading')) {
+    //         heading.className = 'nonactiveHeading';
+    //     } else {
+    //         heading.className = activeHeading;
+    //     }
+    // }
+</script>
+
+</html>
